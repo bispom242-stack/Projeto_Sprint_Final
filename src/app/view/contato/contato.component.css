@@ -162,7 +162,7 @@ body {
   background: #113a9f;
 }
 
-.iframe {
+iframe {
   padding: 10%;
 }
 
@@ -176,4 +176,5 @@ body {
     text-align: left;
   }
 }
+
 
