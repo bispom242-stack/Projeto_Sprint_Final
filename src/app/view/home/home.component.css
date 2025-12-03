@@ -1,0 +1,126 @@
+/* HEADER */
+.header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  color: #4caf50;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -230px;
+  width: 230px;
+  height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #ccc;
+  padding: 20px;
+  transition: 0.3s;
+  z-index: 200;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar .logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  color: #444;
+  font-size: 15px;
+}
+
+.sidebar li.active {
+  background: #e0e0e0;
+  border-left: 4px solid #4caf50;
+}
+
+/* OVERLAY AO ABRIR MENU */
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.55);
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+/* BACKGROUND */
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.car-img {
+  width: 70%;
+  opacity: 0.9;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+/* CARD CENTRAL */
+.content-box {
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 380px;
+  padding: 25px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.content-box h3 {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.welcome {
+  color: #0a4fcc;
+  font-weight: bold;
+}
+
+#carouselExample {
+  padding: 10%;
+}
+
+.carousel-item img {
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+filter: invert(44%) sepia(94%) saturate(5250%) hue-rotate(184deg) brightness(98%) contrast(92%);
+}
+

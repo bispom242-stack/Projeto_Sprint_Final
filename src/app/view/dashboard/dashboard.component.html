@@ -1,0 +1,80 @@
+<!-- MENU SUPERIOR -->
+<div class="header">
+  <i class="fa fa-bars menu-icon" (click)="toggleSidebar()"></i>
+</div>
+
+<div class="sidebar" [class.open]="sidebarOpen">
+  <img src="img/ford.png" class="logo" />
+
+  <ul>
+    <li routerLink="/home" routerLinkActive="active">Home</li>
+    <li routerLink="/dashboard" routerLinkActive="active">Dashboard</li>
+    <li routerLink="/contato" routerLinkActive="active">Contato</li>
+  </ul>
+</div>
+
+<div class="overlay" *ngIf="sidebarOpen" (click)="toggleSidebar()"></div>
+
+<!-- TÍTULO -->
+<div class="title">Dashboard FORD</div>
+
+<!-- BLOCOS SUPERIORES -->
+<div class="cards-container">
+
+    <!-- CARD 1 - SELECT -->
+    <div class="card">
+        <h4>Veículo</h4>
+        <select (change)="onVehicleChange($event)">
+            <option *ngFor="let v of vehicles" [value]="v.vehicle">{{ v.vehicle }}</option>
+        </select>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card">
+        <h4>Total de Vendas</h4>
+        <p>{{ salesTotal }} unid.</p>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card">
+        <h4>Conectados</h4>
+        <p>{{ connectedTotal }} unid.</p>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="card">
+        <h4>Update Software</h4>
+        <p>{{ updateTotal }} unid.</p>
+    </div>
+
+</div>
+
+<!-- IMAGEM DO CARRO -->
+<img class="car-image" [src]="carImage" *ngIf="carImage">
+
+<!-- TABELA -->
+<table>
+    <thead>
+        <tr>
+            <th>Código - Vin</th>
+            <th>Odômetro</th>
+            <th>Nível de Combustível</th>
+            <th>Status</th>
+            <th>Lat.</th>
+            <th>Long.</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <input [formControl]="vinInput" placeholder="Digite o VIN" />
+
+            <td>{{ vinData?.odometro }} km</td>
+            <td>{{ vinData?.nivelCombustivel }}%</td>
+            <td>{{ vinData?.status }}</td>
+            <td>{{ vinData?.lat }}</td>
+            <td>{{ vinData?.long }}</td>
+
+        </tr>
+    </tbody>
+</table>

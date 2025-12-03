@@ -1,0 +1,56 @@
+<!-- MENU SUPERIOR -->
+<div class="header">
+  <i class="fa fa-bars menu-icon" (click)="toggleSidebar()"></i>
+</div>
+
+<div class="sidebar" [class.open]="sidebarOpen">
+  <img src="img/ford.png" class="logo" />
+
+  <ul>
+    <li routerLink="/home" routerLinkActive="active">Home</li>
+    <li routerLink="/dashboard" routerLinkActive="active">Dashboard</li>
+    <li routerLink="/contato" routerLinkActive="active">Contato</li>
+  </ul>
+</div>
+
+<div class="overlay" *ngIf="sidebarOpen" (click)="toggleSidebar()"></div>
+
+<main class="container">
+
+  <div class="image-area">
+    <img src="img/ranger.png" class="car-image">
+  </div>
+
+  <div class="form-area">
+    <h2 class="titulo">Sobre Você</h2>
+
+    <form (ngSubmit)="enviarFormulario()" #formFord="ngForm">
+
+      <input type="text" name="nome" ngModel placeholder="Nome *" class="input" required>
+      <input type="email" name="email" ngModel placeholder="E-mail *" class="input" required>
+      <input type="text" name="cpf" ngModel placeholder="CPF *" class="input" required>
+      <input type="text" name="sobrenome" ngModel placeholder="Sobrenome *" class="input" required>
+      <input type="text" name="telefone" ngModel placeholder="Telefone *" class="input" required>
+
+      <select name="contato" ngModel class="input select" required>
+        <option disabled selected value="">Como deseja ser contatado?</option>
+        <option>Telefone</option>
+        <option>E-mail</option>
+      </select>
+
+      <div class="lgpd-container">
+        <label class="lgpd-check">
+          <input type="checkbox" id="termosLGPD" required>
+          <span class="checkmark"></span>
+          <span class="lgpd-text">
+            Li e concordo com os <a href="#" target="_blank">Termos de Uso</a> e com a
+            <a href="#" target="_blank">Política de Privacidade (LGPD)</a>.
+          </span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn-enviar">Enviar</button>
+    </form>
+  </div>
+
+</main>

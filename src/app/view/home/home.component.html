@@ -1,0 +1,53 @@
+<div class="header">
+  <i class="fa fa-bars menu-icon" (click)="toggleSidebar()"></i>
+</div>
+
+<div class="sidebar" [class.open]="sidebarOpen">
+  <img src="img/ford.png" class="logo" />
+
+  <ul>
+    <li routerLink="/home" routerLinkActive="active">Home</li>
+    <li routerLink="/dashboard" routerLinkActive="active">Dashboard</li>
+    <li routerLink="/contato" routerLinkActive="active">Contato</li>
+  </ul>
+</div>
+
+<div class="overlay" *ngIf="sidebarOpen" (click)="toggleSidebar()"></div>
+
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+  
+  <div class="carousel-indicators">
+    <button 
+      *ngFor="let img of images; let i = index"
+      type="button"
+      [attr.data-bs-target]="'#carouselExample'"
+      [attr.data-bs-slide-to]="i"
+      [class.active]="i === 0"
+      aria-current="i === 0 ? 'true' : null">
+    </button>
+  </div>
+
+  <div class="carousel-inner">
+    <div 
+      *ngFor="let img of images; let i = index"
+      class="carousel-item"
+      [class.active]="i === 0">
+      <img [src]="img.src" class="d-block w-100" [alt]="img.alt">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>{{ img.title }}</h5>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button"
+          data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button"
+          data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+
+</div>
+

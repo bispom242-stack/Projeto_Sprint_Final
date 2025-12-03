@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="left-side">
+    <img src="img/ranger.png" alt="Ford Ranger" class="car-img" />
+  </div>
+
+  <div class="right-side">
+    <img src="img/ford.png" alt="Ford Logo" class="logo" />
+
+    <h2>Boas-vindas</h2>
+
+    <form (submit)="login()" [formGroup]="formLogin">
+      <div class="input-group">
+        <i class="fa fa-user icon"></i>
+        <input formControlName="nome" type="text" placeholder="Insira seu e-mail" />
+      </div>
+
+      <div class="input-group">
+        <i class="fa fa-lock icon"></i>
+        <input
+          formControlName="senha"
+          [type]="showPassword ? 'text' : 'password'"
+          placeholder="Insira sua senha"
+        />
+        <i class="fa fa-eye toggle" (click)="togglePassword()"></i>
+      </div>
+
+      <div class="auto-login">
+        <input type="checkbox" formControlName="auto" />
+        <label>Logar automaticamente</label>
+      </div>
+
+      <button class="btn" type="submit" [disabled]="loading">
+        {{ loading ? "Entrando..." : "Entrar" }}
+      </button>
+
+      <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
+    </form>
+  </div>
+</div>
