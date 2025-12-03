@@ -162,6 +162,10 @@ body {
   background: #113a9f;
 }
 
+.iframe {
+  padding: 10%;
+}
+
 @media (max-width: 850px) {
   .form-card {
     flex-direction: column;
@@ -172,3 +176,4 @@ body {
     text-align: left;
   }
 }
+
