@@ -16,21 +16,21 @@ export class ContatoComponent {
     this.sidebarOpen = !this.sidebarOpen;
   }
 
-  enviarFormulario() {
-    const nome = (document.querySelector('input[name="nome"]') as HTMLInputElement).value;
-    const email = (document.querySelector('input[name="email"]') as HTMLInputElement).value;
-    const cpf = (document.querySelector('input[name="cpf"]') as HTMLInputElement).value;
-    const sobrenome = (document.querySelector('input[name="sobrenome"]') as HTMLInputElement).value;
-    const telefone = (document.querySelector('input[name="telefone"]') as HTMLInputElement).value;
-    const contato = (document.querySelector('select[name="contato"]') as HTMLSelectElement).value;
+  enviarFormulario(form: NgForm) {
 
-    console.log("Nome:", nome);
-    console.log("Email:", email);
-    console.log("CPF:", cpf);
-    console.log("Sobrenome:", sobrenome);
-    console.log("Telefone:", telefone);
-    console.log("Contato preferido:", contato);
+    if (form.invalid) {
+      // marca todos os campos para mostrar erro visual
+      Object.values(form.controls).forEach(control => {
+        control.markAsTouched();
+      });
 
-    alert("Dados enviados!");
+      alert('Preencha todos os campos obrigatórios e aceite os termos.');
+      return;
+    }
+
+    console.log(form.value);
+    alert('Formulário enviado com sucesso!');
+    form.resetForm();
   }
+
 }
