@@ -24,34 +24,98 @@
   <div class="form-area">
     <h2 class="titulo">Sobre Você</h2>
 
-    <form (ngSubmit)="enviarFormulario()" #formFord="ngForm">
+    <form
+      #formFord="ngForm"
+      (ngSubmit)="enviarFormulario(formFord)"
+      novalidate
+    >
+      <input
+        type="text"
+        name="nome"
+        ngModel
+        placeholder="Nome *"
+        class="input"
+        required
+      />
 
-      <input type="text" name="nome" ngModel placeholder="Nome *" class="input" required>
-      <input type="email" name="email" ngModel placeholder="E-mail *" class="input" required>
-      <input type="text" name="cpf" ngModel placeholder="CPF *" class="input" required>
-      <input type="text" name="sobrenome" ngModel placeholder="Sobrenome *" class="input" required>
-      <input type="text" name="telefone" ngModel placeholder="Telefone *" class="input" required>
+      <input
+        type="text"
+        name="sobrenome"
+        ngModel
+        placeholder="Sobrenome *"
+        class="input"
+        required
+      />
 
-      <select name="contato" ngModel class="input select" required>
-        <option disabled selected value="">Como deseja ser contatado?</option>
-        <option>Telefone</option>
-        <option>E-mail</option>
+      <input
+        type="email"
+        name="email"
+        ngModel
+        placeholder="E-mail *"
+        class="input"
+        required
+        email
+      />
+
+      <input
+        type="text"
+        name="cpf"
+        ngModel
+        placeholder="CPF *"
+        class="input"
+        required
+      />
+
+      <input
+        type="text"
+        name="telefone"
+        ngModel
+        placeholder="Telefone *"
+        class="input"
+        required
+      />
+
+      <select
+        name="contato"
+        ngModel
+        class="input select"
+        required
+      >
+        <option value="" disabled selected>
+          Como deseja ser contatado?
+        </option>
+        <option value="Telefone">Telefone</option>
+        <option value="E-mail">E-mail</option>
       </select>
 
+      <!-- LGPD -->
       <div class="lgpd-container">
         <label class="lgpd-check">
-          <input type="checkbox" id="termosLGPD" required>
+          <input
+            type="checkbox"
+            name="lgpd"
+            ngModel
+            required
+          />
           <span class="checkmark"></span>
           <span class="lgpd-text">
-            Li e concordo com os <a href="#" target="_blank">Termos de Uso</a> e com a
+            Li e concordo com os
+            <a href="#" target="_blank">Termos de Uso</a> e com a
             <a href="#" target="_blank">Política de Privacidade (LGPD)</a>.
           </span>
         </label>
       </div>
 
-      <button type="submit" class="btn-enviar">Enviar</button>
+      <!-- BOTÃO SÓ FUNCIONA SE TUDO ESTIVER VÁLIDO -->
+      <button
+        type="submit"
+        class="btn-enviar"
+      >
+        Enviar
+      </button>
     </form>
   </div>
 
 
 </main>
+
