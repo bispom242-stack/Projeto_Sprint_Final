@@ -1,6 +1,6 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -32,5 +32,4 @@ export class ContatoComponent {
     alert('Formulário enviado com sucesso!');
     form.resetForm();
   }
-
 }
