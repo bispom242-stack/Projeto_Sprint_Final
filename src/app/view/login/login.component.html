@@ -10,18 +10,18 @@
 
     <form (submit)="login()" [formGroup]="formLogin">
       <div class="input-group">
-        <i class="fa fa-user icon"></i>
+        <i class="bi bi-person icon"></i>
         <input formControlName="nome" type="text" placeholder="Insira seu e-mail" />
       </div>
 
       <div class="input-group">
-        <i class="fa fa-lock icon"></i>
+        <i class="bi bi-lock icon"></i>
         <input
           formControlName="senha"
           [type]="showPassword ? 'text' : 'password'"
           placeholder="Insira sua senha"
         />
-        <i class="fa fa-eye toggle" (click)="togglePassword()"></i>
+        <i class="bi bi-eye toggle" (click)="togglePassword()"></i>
       </div>
 
       <div class="auto-login">
